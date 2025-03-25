@@ -7,10 +7,11 @@ const estilos = (tema) => {
     },
     body: {
       margin: 0,
+     
+      
+      
     },
-    p:{
-      margin: 0
-    }
+   
   };
 };
 

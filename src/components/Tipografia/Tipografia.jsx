@@ -61,7 +61,7 @@ const estilos = {
   `,
 };
 
-export const Tipografia = ({ variante, componente, children }) => {
+export const Tipografia = ({children, variante, componente }) => {
   const tag = componentes[componente];
   const ComponenteUtilizado = styled[tag]`
     ${estilos[variante]}

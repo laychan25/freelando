@@ -4,15 +4,15 @@ const tema = {
     cores: {
         branco: '#ffff',
         atencao: '',
-        foco: '',
+        foco: '#b61b00',
         primarias: {
             a: '#5754ED',
-            b:'',
+            b:'#d93114',
             c:''
         },
         secundarias: {
-            a: '#EBEAF9',
-            b:'',
+            a: '#ebeaf9',
+            b:'#b61b00',
             c:''
         },
         neutras:{
