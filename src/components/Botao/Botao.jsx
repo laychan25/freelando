@@ -17,6 +17,7 @@ border-color: ${props=> props.theme.cores.primarias.b};
 &:hover{
  color: ${props=> props.theme.cores.secundarias.b};
  border-color: ${props=> props.theme.cores.secundarias.b} ;
+ cursor: pointer;
 }
 `;
 
@@ -36,6 +37,7 @@ border-color: ${props=> props.theme.cores.primarias.b};
 
 &:hover{
  background-color: ${props=> props.theme.cores.secundarias.b};
+ cursor: pointer;
 }
 `;
 

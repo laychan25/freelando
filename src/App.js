@@ -7,13 +7,45 @@ import ProvedorTema from "./components/ProvedorTema/ProvedorTema";
 import { Rodape } from "./components/Rodape/Rodape";
 import { Tipografia } from "./components/Tipografia/Tipografia";
 import { Botao } from "./components/Botao/Botao";
+import { ListaSuspensa } from "./components/ListaSuspensa/ListaSuspensa";
+
+const estadosBrasileiros = [
+  { "text": "Acre", "value": "AC" },
+  { "text": "Alagoas", "value": "AL" },
+  { "text": "Amapá", "value": "AP" },
+  { "text": "Amazonas", "value": "AM" },
+  { "text": "Bahia", "value": "BA" },
+  { "text": "Ceará", "value": "CE" },
+  { "text": "Distrito Federal", "value": "DF" },
+  { "text": "Espírito Santo", "value": "ES" },
+  { "text": "Goiás", "value": "GO" },
+  { "text": "Maranhão", "value": "MA" },
+  { "text": "Mato Grosso", "value": "MT" },
+  { "text": "Mato Grosso do Sul", "value": "MS" },
+  { "text": "Minas Gerais", "value": "MG" },
+  { "text": "Pará", "value": "PA" },
+  { "text": "Paraíba", "value": "PB" },
+  { "text": "Paraná", "value": "PR" },
+  { "text": "Pernambuco", "value": "PE" },
+  { "text": "Piauí", "value": "PI" },
+  { "text": "Rio de Janeiro", "value": "RJ" },
+  { "text": "Rio Grande do Norte", "value": "RN" },
+  { "text": "Rio Grande do Sul", "value": "RS" },
+  { "text": "Rondônia", "value": "RO" },
+  { "text": "Roraima", "value": "RR" },
+  { "text": "Santa Catarina", "value": "SC" },
+  { "text": "São Paulo", "value": "SP" },
+  { "text": "Sergipe", "value": "SE" },
+  { "text": "Tocantins", "value": "TO" }
+]
+
 
 function App() {
   return (
     <ProvedorTema>
       <Estilos />
       <Cabecalho>Login</Cabecalho>
-      <Container style={{ margin: "80px 80px" }}>
+      <Container style={{ margin: "60px 100px",paddingBottom: "50px" ,}}>
         <Row justify="center">
           <Col lg={6} md={8} sm={12}>
             <Card >
@@ -21,10 +53,10 @@ function App() {
                 Freelando
               </Tipografia>
               <Tipografia variante="body" componente="body">
-                Crie seu perfil gratuitamente para começar a trabalhar com os
+                Crie seu perfil gratuitamente para começar a trabalha com os
                 melhores freelancers. Em seguida, você poderá dar mais detalhes
                 sobre suas demandas e sobre sua forma de trabalho.
-              </Tipografia>
+                </Tipografia>
               <Row>
                 <Col lg={12} md={12} sm={12}>
                   <CampoTexto titulo="Nome Completo" />
@@ -32,10 +64,10 @@ function App() {
               </Row>
               <Row>
                 <Col lg={4} md={4} sm={4}>
-                  <CampoTexto titulo="Estado" />
+                 <ListaSuspensa titulo='Estado' opcoes={estadosBrasileiros} />
                 </Col>
                 <Col lg={8} md={8} sm={8}>
-                  <CampoTexto titulo="Estado" />
+                  <CampoTexto titulo="Cidade" />
                 </Col>
               </Row>
               <Row>

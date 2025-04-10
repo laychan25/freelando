@@ -5,6 +5,7 @@ const tema = {
         branco: '#ffff',
         atencao: '',
         foco: '#b61b00',
+        focus:'#b009ff',
         primarias: {
             a: '#5754ED',
             b:'#d93114',

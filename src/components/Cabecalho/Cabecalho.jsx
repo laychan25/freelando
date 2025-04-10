@@ -7,13 +7,16 @@ const Header = styled.header`
     align-items: center;
     background-color: ${props => props.theme.cores.primarias.a};
     width: 100%;
-    height: 90px ;
+    height: 75px ;
     color: ${props => props.theme.cores.neutras.c};
     
     
 `
 const  Div = styled.div`
   margin-right: 80px;
+  &:hover{
+    cursor: pointer;
+  }
 `
 const Imagem = styled.img`
 padding-left: 80px;
