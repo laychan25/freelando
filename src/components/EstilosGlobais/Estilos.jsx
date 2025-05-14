@@ -4,6 +4,7 @@ const estilos = (tema) => {
   return {
     html: {
       fontFamily: tema.fontFamily,
+      overflowX: "hidden",
     },
     body: {
       margin: 0,

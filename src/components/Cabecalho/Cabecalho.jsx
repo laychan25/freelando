@@ -6,11 +6,10 @@ const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     background-color: ${props => props.theme.cores.primarias.a};
-    width: 100%;
+    width: 100vw;
     height: 75px ;
     color: ${props => props.theme.cores.neutras.c};
-    
-    
+  
 `
 const  Div = styled.div`
   margin-right: 80px;

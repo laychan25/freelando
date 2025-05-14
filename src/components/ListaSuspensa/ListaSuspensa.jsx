@@ -64,7 +64,7 @@ const Linha = styled.hr`
   opacity: 0.5;
 `;
 
-export const ListaSuspensa = ({ titulo, opcoes }) => {
+export const ListaSuspensa = ({ titulo, opcoes, valor, onChange }) => {
   const [estaAberta, alternarVisibilidade] = useState(false);
   const [focado, setFocado] = useState(null);
   const [selecionado, setSelecionado] = useState(null);
@@ -128,6 +128,7 @@ export const ListaSuspensa = ({ titulo, opcoes }) => {
         estaAberta={estaAberta}
         onClick={() => alternarVisibilidade(!estaAberta)}
         onKeyDown={manipularTeclas}
+        type="button"
       >
         <Tipografia variante='regular16' componente='body'>{selecionado ? selecionado.text : "Selecionado"}</Tipografia>
         <div>
@@ -142,6 +143,8 @@ export const ListaSuspensa = ({ titulo, opcoes }) => {
               ref={index === focado ? itemFocado : null}
               focoAtivo={index === focado}
               onClick={() => setSelecionado(opcao)}
+              value={valor}
+              onChange={evento => onChange(evento.target.value)}
             >
               {opcao.text}
               <Linha></Linha>

@@ -11,7 +11,7 @@ const RodapeEstilizado = styled.footer`
   z-index: 11;
   background-color: ${(props) => props.theme.cores.primarias.a};
   color: ${(props) => props.theme.cores.branco};
-  width: 100%;
+  width: 100vw;
   height: 75px;
   bottom: 0%;
   position: fixed;
@@ -44,10 +44,10 @@ export const Rodape = ({ children }) => {
 
       <Div>
         <p>Acesse nossas redes:</p>
-       <a href="#"> <Icone src={wpp} alt="icone WhatsApp" /></a>
-       <a href="#"><Icone src={twitch} alt="icone Twitch" /></a>
-       <a href="#" ><Icone src={insta} alt="icone Instagram" /> </a>
-       <a href="#"> <Icone src={twitter} alt="icone Twitter"/> </a>
+       <a href="/"> <Icone src={wpp} alt="icone WhatsApp" /></a>
+       <a href="/"><Icone src={twitch} alt="icone Twitch" /></a>
+       <a href="/" ><Icone src={insta} alt="icone Instagram" /> </a>
+       <a href="/"> <Icone src={twitter} alt="icone Twitter"/> </a>
       </Div>
     </RodapeEstilizado>
   );

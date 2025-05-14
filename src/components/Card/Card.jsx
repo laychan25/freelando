@@ -5,6 +5,9 @@ const DivEstilizada = styled.div`
     background-color: ${props => props.theme.cores.secundarias.a};
     border: 1px solid ${props => props.theme.cores.primarias.a};
     border-radius: ${props => props.theme.espacamentos.s};
+    height: auto;
+    width: 500px;
+   
 
 `
 
