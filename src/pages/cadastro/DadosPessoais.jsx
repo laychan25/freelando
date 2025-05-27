@@ -8,6 +8,7 @@ import { ListaSuspensa } from "../../components/ListaSuspensa/ListaSuspensa";
 import GrupoTexto from "../../components/GrupoTexto/GrupoTexto";
 import { useCadastroUsuarioContext } from "../../contexto/CadastroUsuario";
 import { useEffect } from "react";
+import SpanErro from '../../components/SpanErro/Span'
 
 const estadosBrasileiros = [
   { text: "Acre", value: "AC" },
@@ -52,6 +53,7 @@ const DadosPessoais = () => {
     setSenhaConfirmada,
     submeterUsuario,
     possoSelecionarInteresse,
+    erros,
   } = useCadastroUsuarioContext();
 
   useEffect(() => {
@@ -116,13 +118,20 @@ const DadosPessoais = () => {
             onChange={setSenha}
             tipo="password"
           />
+           {erros.erroSenhaCurta &&(
+            <SpanErro>{erros.erroSenhaCurta}</SpanErro>
+           )}
         </Col>
         <Col lg={6} md={6} sm={6}>
           <CampoTexto
             titulo="Repita a senha"
-            valor={usuario.senhaConfimada}
+            valor={usuario.senhaConfirmada}
             onChange={setSenhaConfirmada}
-          />
+            tipo="password"
+          ></CampoTexto>
+           {erros.erroValidacaoSenha &&(
+            <SpanErro>{erros.erroValidacaoSenha}</SpanErro>
+           )}
         </Col>
       </Row>
 

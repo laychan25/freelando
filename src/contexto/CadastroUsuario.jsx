@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const UsuarioInicial = {
@@ -9,7 +9,7 @@ const UsuarioInicial = {
   cidade: '',
   email: '',
   senha: '',
-  senhaConfimada: '',
+  senhaConfirmada: '',
 };
 
 export const CadastroUsuarioContext = createContext({
@@ -23,7 +23,9 @@ export const CadastroUsuarioContext = createContext({
   setSenha: () => null,
   setSenhaConfirmada: () => null,
   submeterUsuario: ()=> null,
-  possoSelecionarInteresse: ()=> null
+  possoSelecionarInteresse: ()=> null,
+   erros: { erroValidacaoSenha: '' },
+  setErros: () => null,
   
 });
 
@@ -36,6 +38,11 @@ export const CadastroUsuarioProvider = ({ children }) => {
    const navegar = useNavigate()
 
   const [usuario, setUsuario] = useState(UsuarioInicial);
+
+  const [erros , setErros] = useState({
+    erroValidacaoSenha: '',
+    erroSenhaCurta : ''
+  })
 
   const setPerfil = (perfil)=>{
     setUsuario(estadoAnterior=>{
@@ -109,9 +116,23 @@ export const CadastroUsuarioProvider = ({ children }) => {
   };
 
   const submeterUsuario =()=>{
-    console.log(usuario)
-    navegar('/cadastro/concluido')
+    if(usuario.senhaConfirmada === usuario.senha && usuario.senha.length >= 8){
+       setErros(prev => ({ ...prev, erroValidacaoSenha: '' }))
+       navegar('/cadastro/concluido')
+    }else{
+      setErros(prev =>({...prev, erroValidacaoSenha: 'Senha nao conhecidem'}))
+    }
+
+    if(usuario.senha.length < 8){
+      setErros(prev=>({...prev, erroSenhaCurta:'A senha deve ter pelo menos 8 caracteres'}))
+    }
   }
+
+  useEffect(()=>{
+    if(erros.erroValidacaoSenha){
+       console.log(erros.erroValidacaoSenha)
+    }
+  },[erros.erroValidacaoSenha])
 
   const possoSelecionarInteresse=()=>{
        return !!usuario.perfil
@@ -128,7 +149,10 @@ export const CadastroUsuarioProvider = ({ children }) => {
     setSenha,
     setSenhaConfirmada,
     submeterUsuario,
-    possoSelecionarInteresse
+    possoSelecionarInteresse,
+    setErros,
+    erros
+
 
   };
 
